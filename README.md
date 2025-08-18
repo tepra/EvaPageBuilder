@@ -22,13 +22,13 @@
 - **JavaScript Enabled**: Required for full functionality  
 - **CodeMirror 5.65.13**: For the code editor integration  
 - **Bootstrap 5.3.3**: (Optional but strongly recommended) for layout and component styling  
-- [**EVAFileManager**]([[https://github.com/yourusername/evapagebuilder](https://github.com/tepra/EvaEditor](https://github.com/tepra/EvaFileMan))): For file picker
+- **EVAFileManager**: For file picker  
 - **Web Server (Local or Remote)**: Required for AJAX + PHP integration  
 - **PHP 7+**: Required if you use the provided `save.php` integration  
 
 ## 🤝 Contributing
 EVAPageBuilder is an open-source project. Feel free to fork, submit issues, or contribute via pull requests on GitHub.  
-[GitHub Repository]([https://github.com/yourusername/evapagebuilder](https://github.com/tepra/EvaEditor))
+[GitHub Repository](https://github.com/tepra/EvaEditor)
 
 ## 📦 Installation
 
@@ -285,5 +285,5 @@ Alternatively, you can use the `onLoad` config to run iframe-specific code.
 ---
 
 ## 📌 License
-**Engineered Versatile Architecture (EVA) Page Builder** – TePra  
+**Engineered Versatile Architecture (EVA) Page Builder** – TePra © 2025  
 **MIT License** – Free to use, modify, and distribute.
