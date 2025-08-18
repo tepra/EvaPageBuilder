@@ -153,7 +153,7 @@ evaEditor.actionsBtn({
 ```
 
 ## ➕ Adding Custom Buttons
-You can add custom buttons to the toolbar using `editor.addButtons()`.
+Here you can add a customization button that will appear before the save button using `editor.addButtons()`.
 
 ### ✅ Example
 ```js
