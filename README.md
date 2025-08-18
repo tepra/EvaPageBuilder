@@ -67,9 +67,17 @@ Place them inside your `<head>` or load them dynamically via `frameConfig` insid
 const evaEditor = EvaPageEditor.init({
   container: "#evaBuilder-nav",
   frameConfig: {
-    css: [...],
-    js: [...],
-    jsOnBody: [ ... ],
+    css: [
+      'yourwebsitecss',
+      'yourwebsitecss'
+    ],
+    js: [
+      //'yourwebsitejs',
+      //'yourwebsitejs'
+    ],
+    jsOnBody: [
+      // force your website js on body
+    ],
     backgroundColor: "#060606"
   },
   sidebarSelector: {
