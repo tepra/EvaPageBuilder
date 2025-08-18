@@ -72,11 +72,11 @@ const evaEditor = EvaPageEditor.init({
       //'your website css'
     ],
     js: [
-      //'your website js in head html',
-      //'your website js in head html'
+      //'your website js in html head',
+      //'your website js in html head'
     ],
     jsOnBody: [
-      // force your website js on body
+      // force your website js on html body
     ],
     backgroundColor: "#060606"
   },
