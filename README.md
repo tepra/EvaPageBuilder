@@ -22,7 +22,7 @@
 - **JavaScript Enabled**: Required for full functionality  
 - **CodeMirror 5.65.13**: For the code editor integration  
 - **Bootstrap 5.3.3**: (Optional but strongly recommended) for layout and component styling  
-- [**EVAFileManager**](https://github.com/tepra/EvaEditor): For file picker  
+- [**EVAFileManager**](https://github.com/tepra/EvaFileMan): For file picker  
 - **Web Server (Local or Remote)**: Required for AJAX + PHP integration  
 - **PHP 7+**: Required if you use the provided `save.php` integration  
 
