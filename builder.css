@@ -1,0 +1,82 @@
+.eva-builder {
+  position: relative;
+  overflow: hidden;
+  /* block-size: calc(100vh - 12rem) */
+}
+
+@media(max-width: 767.98px) {
+  .eva-builder {
+    block-size:calc(100vh - 11rem)
+  }
+}
+
+.eva-builder .eva-builder-sidebar {
+  position: absolute;
+  z-index: 4;
+  /* flex-basis: 16.25rem; */
+  flex-basis: 11.25rem;
+  background-color: var(--bs-paper-bg);
+  block-size: 100%;
+  inline-size: 11.25rem;
+  inset-inline-start: calc(-16.25rem - 1.2rem);
+  transition: all .3s ease;
+}
+
+.eva-builder .eva-builder-sidebar.show {
+  inset-inline-start: 0;
+  position: static;
+  block-size: auto;
+}
+
+.eva-builder .eva-builder-sidebar .eva-builder-panel {
+  /* block-size: calc(100vh - 16.6rem); */
+  overflow: auto!important;
+}
+
+.eva-popover, .eva-toolbar-popover {
+  position: fixed;
+  /* z-index: 9999; */
+  display: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: top 0.15s ease, left 0.15s ease;
+}
+
+.eva-builder.eva-builder-fullscreen .eva-toolbar-popover {
+  z-index: 9999;
+}
+
+.eva-cloned {
+  outline: 1px dashed limegreen;
+}
+
+.cm-readonly {
+  opacity: 0.4;
+}
+
+.cm-eva-readonly {
+  background-color: rgba(128, 128, 128, 0.15); /* grey transparent */
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.eva-builder-fullscreen {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+}
+
+.eva-builder iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#evaBuilder-nav-blocks-accordion .accordion-body .eva-block-item {
+  cursor: move;
+}
