@@ -293,5 +293,5 @@ Alternatively, you can use the `onLoad` config to run iframe-specific code.
 ---
 
 ## 📌 License
-**Engineered Versatile Architecture (EVA) Page Builder** – TePra © 2025  
+**Engineered Versatile Architecture (EVA) Page Builder** – TePra  
 **MIT License** – Free to use, modify, and distribute.
