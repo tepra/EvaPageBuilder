@@ -62,7 +62,7 @@ These libraries are **required** to run EVAPageBuilder properly:
 
 Place them inside your `<head>` or load them dynamically via `frameConfig` inside `EvaPageEditor.init()`.
 
-## 🚀 Initialization
+## 🚀 Initialization **script.js**
 ```js
 const evaEditor = EvaPageEditor.init({
   container: "#evaBuilder-nav",
