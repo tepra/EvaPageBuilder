@@ -68,12 +68,12 @@ const evaEditor = EvaPageEditor.init({
   container: "#evaBuilder-nav",
   frameConfig: {
     css: [
-      'yourwebsitecss',
-      'yourwebsitecss'
+      //'your website css',
+      //'your website css'
     ],
     js: [
-      //'yourwebsitejs',
-      //'yourwebsitejs'
+      //'your website js in head html',
+      //'your website js in head html'
     ],
     jsOnBody: [
       // force your website js on body
