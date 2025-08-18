@@ -19,7 +19,7 @@
 
 ## 🧰 Requirements
 - **Modern Browser**: Chrome, Firefox, Edge (latest version recommended)  
-- **JavaScript Enabled**: Required for full functionality  
+- **JQuery**: Required for full functionality  
 - **CodeMirror 5.65.13**: For the code editor integration  
 - **Bootstrap 5.3.3**: (Optional but strongly recommended) for layout and component styling  
 - [**EVAFileManager**](https://github.com/tepra/EvaFileMan): For file picker  
