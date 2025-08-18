@@ -153,7 +153,7 @@ evaEditor.actionsBtn({
 ```
 
 ## ➕ Adding Custom Buttons
-Here you can add a customization button that will appear before the save button using `editor.addButtons()`.
+Here you can add a customization button that will appear before the save button, using `editor.addButtons()`.
 
 ### ✅ Example
 ```js
