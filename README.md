@@ -80,7 +80,7 @@ Place them inside your `<head>` or load them dynamically via `frameConfig` insid
 ## 🚀 Initialization **script.js**
 ```js
 const evaEditor = EvaPageEditor.init({
-  container: "#evaBuilder-nav",
+  container: "#evaBuilder", // Main editor container 
   frameConfig: {
     css: [
       //'your website css',
