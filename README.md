@@ -229,7 +229,6 @@ $json = file_get_contents("php://input");
 $data = json_decode($json, true);
 
 file_put_contents("saved_data.json", json_encode($data, JSON_PRETTY_PRINT));
-
 echo json_encode(["status" => "success"]);
 ?>
 ```
@@ -277,6 +276,7 @@ evaEditor.actionsBtn({
 <?php
 $data = json_decode(file_get_contents("php://input"), true);
 $html = "<!DOCTYPE html><html><body>" . $data['editor'] . "</body></html>";
+
 file_put_contents("page.html", $html);
 echo json_encode(["status" => "saved"]);
 ?>
