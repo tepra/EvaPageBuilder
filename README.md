@@ -102,7 +102,7 @@ const evaEditor = EvaPageEditor.init({
     ...
   },
   onLoad: () => {
-    // Perform any additional actions needed upon screen change.
+    // Perform additional actions after the frame is fully loaded.
     ...
   }
 });
