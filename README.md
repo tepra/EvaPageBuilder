@@ -62,6 +62,20 @@ These libraries are **required** to run EVAPageBuilder properly:
 
 Place them inside your `<head>` or load them dynamically via `frameConfig` inside `EvaPageEditor.init()`.
 
+## 🚀 Initialization **HTML file**
+```html
+<div id="evaBuilder" class="eva-builder card mb-6">
+  <div class="row g-0">
+    <div class="col eva-builder-sidebar border-end flex-grow-0">
+      <div class="eva-builder-panel ps"></div>
+    </div>
+    <div class="col">
+      <div class="eva-builder-menu card shadow-none border-0 rounded-0" id=""></div>
+      <div class="eva-builder-frame d-flex justify-content-center"></div>
+    </div>
+  </div>
+</div>
+
 ## 🚀 Initialization **script.js**
 ```js
 const evaEditor = EvaPageEditor.init({
