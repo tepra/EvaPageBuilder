@@ -75,6 +75,7 @@ Place them inside your `<head>` or load them dynamically via `frameConfig` insid
     </div>
   </div>
 </div>
+```
 
 ## 🚀 Initialization **script.js**
 ```js
