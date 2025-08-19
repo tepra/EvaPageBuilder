@@ -71,7 +71,7 @@ Place them inside your `<head>` or load them dynamically via `frameConfig` insid
       <div class="eva-builder-panel ps"></div>
     </div>
     <div class="col">
-      <div class="eva-builder-menu card shadow-none border-0 rounded-0" id=""></div>
+      <div class="eva-builder-menu card shadow-none border-0 rounded-0"></div>
       <div class="eva-builder-frame d-flex justify-content-center"></div>
     </div>
   </div>
