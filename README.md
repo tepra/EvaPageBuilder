@@ -78,7 +78,7 @@ const evaEditor = EvaPageEditor.init({
     jsOnBody: [
       // your js in html body
     ],
-    backgroundColor: "#060606"
+    backgroundColor: "#060606" // Comment out code when it’s not needed.
   },
   sidebarSelector: {
     container: ".eva-builder-sidebar",
