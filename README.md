@@ -63,6 +63,7 @@ These libraries are **required** to run EVAPageBuilder properly:
 Place them inside your `<head>` or load them dynamically via `frameConfig` inside `EvaPageEditor.init()`.
 
 ## 🚀 Initialization **HTML file**
+### ✅ Example
 ```html
 <div id="evaBuilder" class="eva-builder card mb-6">
   <div class="row g-0">
