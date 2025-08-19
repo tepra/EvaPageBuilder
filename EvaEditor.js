@@ -871,6 +871,7 @@
         }
 
         stopPopoverTracking(); // Keep popovers turned off for this element
+        return;
       }
 
       if (!el || !iframeDoc) return;
