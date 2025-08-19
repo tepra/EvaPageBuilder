@@ -255,9 +255,7 @@ evaEditor.actionsBtn({
         <meta charset="UTF-8">
         <title>EVAPageBuilder Output</title>
       </head>
-      <body>
-      ${result.editor}
-      </body>
+      <body>${result.editor}</body>
       </html>
     `.trim();
 
