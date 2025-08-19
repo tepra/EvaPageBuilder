@@ -862,16 +862,15 @@
 
     function highlightSelectedElement(el) {
       if (isReadOnlyElement(el)) {
-        const editableSelector = (codeEditor?.editable || []).join(",");
+        const editableSelector = (options.codeEditor?.editable || []).join(",");
         if (editableSelector) {
           const editableParent = el.closest(editableSelector);
           if (editableParent) {
-            // Move selection target to editable parent
-            el = editableParent;
+            el = editableParent; // Move selection target to editable parent
           }
         }
-        // Keep popovers turned off for this element
-        stopPopoverTracking();
+
+        stopPopoverTracking(); // Keep popovers turned off for this element
       }
 
       if (!el || !iframeDoc) return;
