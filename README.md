@@ -83,8 +83,10 @@ const evaEditor = EvaPageEditor.init({
   sidebarSelector: {
     container: ".eva-builder-sidebar",
     deviceSwitcher: {
+      // You can set your own size
       "smartphone-portrait": { width: "375px", height: "667px" },
-      ...
+      "smartphone-landscape": { width: "667px", height: "375px" },
+      "desktop": { width: "100%", height: "600px" }
     }
   },
   codeEditor: {
