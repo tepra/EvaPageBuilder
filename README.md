@@ -30,10 +30,6 @@
 - **Web Server (Local or Remote)**: Required for AJAX + PHP integration  
 - **PHP 7+**: Required if you use the provided `save.php` integration  
 
-## 🤝 Contributing
-EVAPageBuilder is an open-source project. Feel free to fork, submit issues, or contribute via pull requests on GitHub.  
-[GitHub Repository](https://github.com/tepra/EvaPageBuilder)
-
 ## 📦 Installation
 
 These libraries are **required** to run EVAPageBuilder properly:
