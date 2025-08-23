@@ -2421,9 +2421,12 @@
 
     function setupFullscreenToggle() {
       const fullscreenBtn = container.querySelector('[eva-builder="fullscreen"]');
+      const codeEditorBtn = container.querySelector('[eva-builder="code"]');
       const frameWrapper = container.querySelector(".eva-builder-frame");
       const iframe = frameWrapper?.querySelector("iframe");
       const menu = container.querySelector(".eva-builder-menu");
+      const desktopSwitch = container.querySelector('[eva-builder-switch="desktop"]');
+
       if (!fullscreenBtn || !frameWrapper || !iframe || !menu) return;
 
       fullscreenBtn.addEventListener("click", () => {
@@ -2443,24 +2446,38 @@
         const contentHeight = evaHeight - menuHeight;
 
         applyStyles(frameWrapper, {
-          width: "100vw",
+          width: "100%",
           height: `${contentHeight}px`,
         });
 
         applyStyles(iframe, {
-          width: "100vw",
+          width: "100%",
           height: `${contentHeight}px`,
         });
       };
+
+      desktopSwitch?.addEventListener("click", () => {
+        const isActive = desktopSwitch.classList.contains("active");
+
+        if (isActive) {
+          updateSizes();
+          window.addEventListener("resize", updateSizes);
+        } else {
+          restoreAllStyles();
+          window.removeEventListener("resize", updateSizes);
+        }
+      });
 
       document.addEventListener("fullscreenchange", () => {
         const isFull = !!document.fullscreenElement;
         if (isFull) {
           fullscreenBtn.classList.add("active");
+          codeEditorBtn.classList.add("disabled");
           updateSizes();
           window.addEventListener("resize", updateSizes);
         } else {
           fullscreenBtn.classList.remove("active");
+          codeEditorBtn.classList.remove("disabled");
           window.removeEventListener("resize", updateSizes);
           restoreAllStyles(); // Back to original size
         }
