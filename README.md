@@ -4,7 +4,7 @@
 
 
 ![version](https://img.shields.io/badge/version-v1.1-blue)
-![license](https://img.shields.io/github/license/username/repo)
+![license](https://img.shields.io/badge/license-MIT-green)
 ![downloads](https://img.shields.io/npm/dw/myproject)
 
 ## 🖼️ Screenshot
