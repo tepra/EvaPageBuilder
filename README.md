@@ -187,7 +187,7 @@ editor.addButtons(
     id: 'test2',
     class: 'btn btn-warning btn-sm',
     attributes: `eva-cms-test2`,
-    label: 'Warning',
+    icon: 'bx bx-file', // If you want to use with icon
     onClick: () => alert('Clicked!')
   }
 );
