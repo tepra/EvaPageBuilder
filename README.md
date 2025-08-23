@@ -1,11 +1,10 @@
 # EVAPageBuilder
 
-**EVAPageBuilder** is a modular drag-and-drop HTML editor using iframe-based isolation, block system, and editable zones.
-
-
 ![version](https://img.shields.io/badge/version-v1.1-blue)
 ![license](https://img.shields.io/github/license/tepra/EVAPageBuilder)
 ![downloads](https://img.shields.io/npm/dw/myproject)
+
+**EVAPageBuilder** is a modular drag-and-drop HTML editor using iframe-based isolation, block system, and editable zones.
 
 ## 🖼️ Screenshot
 ![EvaFileMan Grid View](img/eva.png)
