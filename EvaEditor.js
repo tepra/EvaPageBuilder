@@ -2350,22 +2350,125 @@
     }
 
     // --- Fullscreen Toggle ---
+    // --- Helper: save initial styles including computed styles ---
+    const _savedStyles = new Map();
+
+    function saveOriginalStyles(el, props) {
+      if (!el) return;
+      if (_savedStyles.has(el)) return; // Save only once
+
+      const computed = getComputedStyle(el);
+      const original = {};
+      props.forEach((p) => {
+        const inlineVal = el.style[p];
+        if (inlineVal) {
+          original[p] = inlineVal; // if there is an original inline style
+        } else {
+          original[p] = ""; // empty to return to auto
+        }
+      });
+      _savedStyles.set(el, original);
+    }
+
+    function applyStyles(el, styles) {
+      if (!el) return;
+      const props = Object.keys(styles);
+      saveOriginalStyles(el, props);
+      props.forEach((prop) => {
+        el.style[prop] = styles[prop];
+      });
+    }
+
+    function restoreAllStyles() {
+      for (const [el, styles] of _savedStyles.entries()) {
+        Object.entries(styles).forEach(([prop, val]) => {
+          el.style[prop] = val; // If val "", automatically returns to default
+        });
+      }
+      _savedStyles.clear();
+    }
+
+    // --- Fullscreen Toggle Role ---
+    //
+    // Choose how the editor behaves in fullscreen mode (two options):
+    // 1. "Above" code: fullscreen matches the editor's initial desktop size.
+    // 2. "Below" code: true fullscreen, scaling to the user's entire screen.
+    //
+
+    // function setupFullscreenToggle() {
+    //   const fullscreenBtn = container.querySelector('[eva-builder="fullscreen"]');
+    //   if (!fullscreenBtn) return;
+
+    //   fullscreenBtn.addEventListener("click", () => {
+    //     const isFullscreen = document.fullscreenElement;
+
+    //     if (!isFullscreen) {
+    //       container.requestFullscreen?.(); // Enter fullscreen
+    //       fullscreenBtn.classList.add("active");
+    //     } else {
+    //       document.exitFullscreen?.(); // Exit fullscreen
+    //       fullscreenBtn.classList.remove("active");
+    //     }
+    //   });
+
+    //   // When exit fullscreen with ESC, toggle button also turns off
+    //   document.addEventListener("fullscreenchange", () => {
+    //     if (!document.fullscreenElement) {
+    //       fullscreenBtn.classList.remove("active");
+    //     }
+    //   });
+    // }
+
     function setupFullscreenToggle() {
       const fullscreenBtn = container.querySelector('[eva-builder="fullscreen"]');
-      if (!fullscreenBtn) return;
+      const frameWrapper = container.querySelector(".eva-builder-frame");
+      const iframe = frameWrapper?.querySelector("iframe");
+      const menu = container.querySelector(".eva-builder-menu");
+      if (!fullscreenBtn || !frameWrapper || !iframe || !menu) return;
 
       fullscreenBtn.addEventListener("click", () => {
-        if (!document.fullscreenElement) {
-          // Enter to fullscreen
-          container.requestFullscreen?.().catch(err => {
-            console.warn("Fullscreen request failed:", err);
-          });
+        const isFullscreen = document.fullscreenElement;
+        if (!isFullscreen) {
+          container.requestFullscreen?.();
           fullscreenBtn.classList.add("active");
         } else {
-          // Exit from fullscreen
           document.exitFullscreen?.();
           fullscreenBtn.classList.remove("active");
         }
+      });
+
+      const updateSizes = () => {
+        const evaHeight = container.getBoundingClientRect().height;
+        const menuHeight = menu.getBoundingClientRect().height;
+        const contentHeight = evaHeight - menuHeight;
+
+        applyStyles(frameWrapper, {
+          width: "100vw",
+          height: `${contentHeight}px`,
+        });
+
+        applyStyles(iframe, {
+          width: "100vw",
+          height: `${contentHeight}px`,
+        });
+      };
+
+      document.addEventListener("fullscreenchange", () => {
+        const isFull = !!document.fullscreenElement;
+        if (isFull) {
+          fullscreenBtn.classList.add("active");
+          updateSizes();
+          window.addEventListener("resize", updateSizes);
+        } else {
+          fullscreenBtn.classList.remove("active");
+          window.removeEventListener("resize", updateSizes);
+          restoreAllStyles(); // Back to original size
+        }
+      });
+
+      document.addEventListener("fullscreenerror", () => {
+        restoreAllStyles();
+        fullscreenBtn.classList.remove("active");
       });
     }
 
