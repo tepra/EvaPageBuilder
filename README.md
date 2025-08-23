@@ -32,7 +32,7 @@
 
 ## 🤝 Contributing
 EVAPageBuilder is an open-source project. Feel free to fork, submit issues, or contribute via pull requests on GitHub.  
-[GitHub Repository](https://github.com/tepra/EvaEditor)
+[GitHub Repository](https://github.com/tepra/EvaPageBuilder)
 
 ## 📦 Installation
 
