@@ -308,6 +308,18 @@ Alternatively, you can leverage the onLoad configuration to execute iframe-speci
 ```js
 const evaEditor = EvaPageEditor.init({
   ...
+  frameConfig: {
+    css: [
+      `https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css`
+    ],
+    js: [
+      `https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js`
+    ],
+    jsOnBody: [
+      `${url}/assets/js/main.js`
+    ]
+  },
+  ...
   onLoad: () => {
     // Perform additional actions after the frame is fully loaded.
     setTimeout(() => {
