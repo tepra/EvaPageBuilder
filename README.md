@@ -332,6 +332,7 @@ const evaEditor = EvaPageEditor.init({
     }, 200);
   }
 });
+```
 
 ---
 
