@@ -304,7 +304,34 @@ echo json_encode(["status" => "saved"]);
 If you notice JS-based elements (like animations, counters, sliders) not working inside the iframe,  
 make sure their initialization is included within `initializeInFrameLibraries()` in `EvaEditor.js`.
 
-Alternatively, you can use the `onLoad` config to run iframe-specific code.
+Alternatively, you can leverage the onLoad configuration to execute iframe-specific logic. For instance, in the following example I demonstrate how to initialize a Swiper carousel within the #award section.
+```js
+const evaEditor = EvaPageEditor.init({
+  ...
+  onLoad: () => {
+    // Perform additional actions after the frame is fully loaded.
+    setTimeout(() => {
+      const awardWrapper = iframeDoc.querySelector("#award .swiper-wrapper"); // Here you can select your element
+
+      // Example with swiper
+      new iframe.contentWindow.Swiper(".award-carousel", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          reverseDirection: false
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          992: { slidesPerView: 4 }
+        }
+      });
+    }, 200);
+  }
+});
 
 ---
 
