@@ -861,18 +861,45 @@
     }
 
     function highlightSelectedElement(el) {
+      // => Readonly Element
+      // if (isReadOnlyElement(el)) {
+      //   const editableSelector = (options.codeEditor?.editable || []).join(",");
+      //   if (editableSelector) {
+      //     const editableParent = el.closest(editableSelector);
+      //     if (editableParent) {
+      //       el = editableParent; // Move selection target to editable parent
+      //     }
+      //   }
+
+      //   stopPopoverTracking(); // Keep popovers turned off for this element
+      //   return;
+      // }
+
       if (isReadOnlyElement(el)) {
         const editableSelector = (options.codeEditor?.editable || []).join(",");
+        let fallback = null;
+
         if (editableSelector) {
           const editableParent = el.closest(editableSelector);
           if (editableParent) {
-            el = editableParent; // Move selection target to editable parent
+            fallback = editableParent;
           }
         }
 
-        stopPopoverTracking(); // Keep popovers turned off for this element
+        // if there is no editable parent → use the default Selected Element
+        if (!fallback && options.defaultSelectedElement) {
+          fallback = iframeDoc.querySelector(options.defaultSelectedElement);
+        }
+
+        if (fallback) {
+          highlightSelectedElement(fallback);
+        } else {
+          stopPopoverTracking(); 
+        }
+
         return;
       }
+      // => End of Readonly Element
 
       if (!el || !iframeDoc) return;
 
