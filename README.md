@@ -323,27 +323,38 @@ const evaEditor = EvaPageEditor.init({
   onLoad: () => {
     // Perform additional actions after the frame is fully loaded.
     setTimeout(() => {
-      const awardWrapper = iframeDoc.querySelector("#award .swiper-wrapper"); // Here you can select your element
-
-      // Example with swiper
-      new iframe.contentWindow.Swiper(".award-carousel", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        grabCursor: true,
-        loop: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-          reverseDirection: false
-        },
-        breakpoints: {
-          768: { slidesPerView: 2 },
-          992: { slidesPerView: 4 }
-        }
-      });
+      initCarousels(iframe, iframeDoc);
     }, 200);
+
+    // Observe DOM changes for auto re-init
+    iframeDoc.addEventListener("drop", () => {
+      setTimeout(() => {
+        initCarousels(iframe, iframeDoc);
+      }, 100);
+    });
   }
 });
+
+function initCarousels(iframe, iframeDoc) {
+  const awardWrapper = iframeDoc.querySelector("#award .swiper-wrapper"); // Here you can select your element
+
+  // Example with swiper
+  new iframe.contentWindow.Swiper(".award-carousel", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+      reverseDirection: false
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 4 }
+    }
+  });
+}
 ```
 
 ---
