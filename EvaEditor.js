@@ -778,8 +778,30 @@
         highlightSelectedElement(el);
       });
 
+      // el.addEventListener("dblclick", (e) => {
+      //   const tag = el.tagName.toLowerCase();
+
+      //   if (editableTags.includes(tag)) {
+      //     el.setAttribute("contenteditable", "true");
+      //     el.focus();
+      //   }
+      // });
+
       el.addEventListener("dblclick", (e) => {
-        const tag = el.tagName.toLowerCase();
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (tag === "img") {
+          if (typeof window.EvaFileMan?.openColaborated === "function") {
+            window.EvaFileMan.openColaborated((selectedPath) => {
+              if (selectedPath) {
+                el.src = selectedPath;
+                if (typeof saveState === "function") saveState();
+              }
+            });
+          }
+          return;
+        }
 
         if (editableTags.includes(tag)) {
           el.setAttribute("contenteditable", "true");
@@ -809,7 +831,20 @@
         const tag = el.tagName.toLowerCase();
         const editableTags = ["label", "span", "p", "h1", "h2", "h3", "span", "div", "a", "td", "th", "button"];
 
-        if (tag === "img" && el.dataset.editable === "true") {
+        // if (tag === "img" && el.dataset.editable === "true") {
+        //   if (typeof window.EvaFileMan?.openColaborated === "function") {
+        //     window.EvaFileMan.openColaborated((selectedPath) => {
+        //       if (selectedPath) {
+        //         el.src = selectedPath;
+        //         if (typeof saveState === "function") saveState();
+        //       }
+        //     });
+        //   }
+
+        //   return;
+        // }
+
+        if (tag === "img") {
           if (typeof window.EvaFileMan?.openColaborated === "function") {
             window.EvaFileMan.openColaborated((selectedPath) => {
               if (selectedPath) {
@@ -818,7 +853,6 @@
               }
             });
           }
-
           return;
         }
 
