@@ -767,7 +767,7 @@
       if (isReadOnlyElement(el)) return;
 
       const tag = el.tagName.toLowerCase();
-      const editableTags = ["label", "span", "p", "h1", "h2", "h3", "span", "div", "a", "td", "th", "button", "ul", "li"];
+      const editableTags = ["label", "span", "p", "h1", "h2", "h3", "div", "a", "td", "th", "button", "ul", "li"];
       if (editableTags.includes(tag)) {
         el.setAttribute("contenteditable", "true");
       }
@@ -829,7 +829,7 @@
         if (isReadOnlyElement(el)) return;
 
         const tag = el.tagName.toLowerCase();
-        const editableTags = ["label", "span", "p", "h1", "h2", "h3", "span", "div", "a", "td", "th", "button"];
+        const editableTags = ["label", "span", "p", "h1", "h2", "h3", "div", "a", "td", "th", "button"];
 
         // if (tag === "img" && el.dataset.editable === "true") {
         //   if (typeof window.EvaFileMan?.openColaborated === "function") {
