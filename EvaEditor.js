@@ -14,6 +14,7 @@
     let undoStack = [];
     let redoStack = [];
     let highlightTarget = null;
+    let editingElement = null;
 
     let popoverRAF = null; // Keep reference to animation frame
     let popoverEl = null; // Popover element for this instance
@@ -510,8 +511,19 @@
 
           const hrefInput = document.getElementById("evaLinkHref");
           const textInput = document.getElementById("evaLinkText");
-          hrefInput.value = selectedElement.getAttribute("href") || "";
-          textInput.value = selectedElement.textContent || "";
+          const linkEl =
+            selectedElement.tagName === "A"
+              ? selectedElement
+              : selectedElement.querySelector("a");
+
+          if (!linkEl) return;
+
+          hrefInput.value = linkEl.getAttribute("href") || "";
+          textInput.value = linkEl.textContent || "";
+          // const hrefInput = document.getElementById("evaLinkHref");
+          // const textInput = document.getElementById("evaLinkText");
+          // hrefInput.value = selectedElement.getAttribute("href") || "";
+          // textInput.value = selectedElement.textContent || "";
 
           const bsModal = new bootstrap.Modal(linkModal);
           bsModal.show();
@@ -939,11 +951,33 @@
 
       const liParent = el.closest("li");
 
-      if (el.tagName === "A" && el.querySelector("img")) {
+      // if (el.tagName === "A" && el.querySelector("img")) {
+      //   highlightTarget = el.querySelector("img");
+      // } else if (el.closest(".resize-wrapper")) {
+      //   highlightTarget = el.closest(".resize-wrapper").querySelector("img");
+      // } else {
+      //   highlightTarget = liParent || el;
+      // }
+
+      editingElement = el;
+
+      if (el.tagName === "A") {
+        // ⬅️ INI PENTING
+        editingElement = el;
+
+        // highlight tetap ke <li> kalau ada
+        highlightTarget = liParent || el;
+
+      } else if (el.tagName === "A" && el.querySelector("img")) {
+        editingElement = el;
         highlightTarget = el.querySelector("img");
+
       } else if (el.closest(".resize-wrapper")) {
+        editingElement = el.closest(".resize-wrapper");
         highlightTarget = el.closest(".resize-wrapper").querySelector("img");
+
       } else {
+        editingElement = el;
         highlightTarget = liParent || el;
       }
 
